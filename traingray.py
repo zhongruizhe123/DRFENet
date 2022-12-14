@@ -9,17 +9,17 @@ import  time
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from models import ADNet
-from models import BTBUNetwithoutDEB
+from models import DRFENetwithoutDEB
 from models import DnCNN
 from models import ECNDNet
-from models import BTBUNetwithoutRDB
+from models import DRFENetwithoutRDB
 from models import IRCNN
-from models import BTBUNet
+from models import DRFENet
 from models import FFDNet
 from models import BRDNet
 from models import BRDNet1
 from models import BRDNet2
-from models import BTBUNetwithoutconcat
+from models import DRFENetwithoutconcat
 from torch.nn.modules.loss import _Loss
 from dataset import prepare_data, Dataset
 from utils import *
@@ -88,18 +88,18 @@ def main():
     print("# of training samples: %d\n" % int(len(dataset_train)))
     # Build model
     # net = ADNet(channels=3, num_of_layers=opt.num_of_layers)
-    # net = BTBUNet(channels=1,num_of_layers=opt.num_of_layers)
+    net = DRFENet(channels=1,num_of_layers=opt.num_of_layers)
     # net = DnCNN(channels=1)
     # net = ECNDNet(channels=1)
-    # net = BTBUNet(channels=3, num_of_layers=17)
+    # net = DRFENet(channels=3, num_of_layers=17)
     # net = FFDNet(is_gray = "gray")
     # net = IRCNN()
-    # net = BTBUNetwithoutDEB(channels=1)
-    # net = BTBUNetwithoutRDB(channels=1)
+    # net = DRFENetwithoutDEB(channels=1)
+    # net = DRFENetwithoutRDB(channels=1)
     # net = BRDNet(channels=1)
     # net = VDN(1, slope=0.2, wf=64, dep_U=4)
     # net = BRDNet1(channels=1)
-    net = BRDNet2(channels=1)
+    # net = BRDNet2(channels=1)
     # net = RIDNET()
     # print("Hello World")
     # net = UNetD(1)
